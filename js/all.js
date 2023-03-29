@@ -11,4 +11,14 @@ $(document).ready(function () {
         // 綁定特定物件，顯示物件。
         $('.title #test').show();
     });
+    // 當滑鼠移到class hover。
+    $('.hover').hover(function () {
+        // 滑鼠滑到時顯示。
+            $('.title #test').show();
+            
+        }, function () {
+        // 滑鼠離開時動作。 
+            $('.title #test').hide();
+        }
+    );
 });

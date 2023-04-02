@@ -25,6 +25,11 @@
             width: 200px;
             height: 100px;
             border: 1px solid blue;
+            /* position:位置relative相對位置。 */
+            position: relative;
+            /* 超出時自動隱藏。 */
+            overflow: hidden;
+            transition: all 3s;
         }
         .title{
             /* 背景顏色 */
@@ -36,12 +41,55 @@
             /* 邊距寬度 宣告兩個就是左右上下。5px代表左右寬度，0代表上下邊距*/
             padding: 5px 0px;
         }
-        .stotic{
+        /* 指class:box底下的title class。 */
+        .box .title{
+            /* 背景顏色 */
+            background: #000;
+            /* 字體顏色 */
+            color: #fff;
+            /* 字體靠哪裡 */
+            text-align: center;
+            /* 邊距寬度 宣告兩個就是左右上下。5px代表左右寬度，0代表上下邊距*/
+            padding: 5px 0px;
+            /* 位置靠哪裡:absolute,絕對定位。 */
+            position:absolute;
+            /* bottom:是指底部的意思，底部值為0就是靠最下面的意思。 */
+            bottom: -32px;
+            /* 動畫變換時間。 */
+            transition: all 1s;
+            /* 寬度100% */
+            width:100%;
+        }
+        .box:hover .title{
+            bottom: 0;
+        }
+        .box-position{
+            width: 150px;
+            height: 150px;
+            border: 1px solid ;
+        }
+        .static{
             /* 靜態定位 */
             position: static;
+            background-color: aqua;
         }
         .relative{
             /* 相對定位位 */
+            position: relative;
+            background-color: bisque;
+        }
+        .fixed{
+            /* 固定定位 */
+            position: fixed;
+            background-color: blue;
+        }
+        .abosolute{
+            position: absolute;
+            background-color: cadetblue;
+        }
+        .sticky{
+            position: sticky;
+            background-color: crimson;
         }
     </style>
 </head>
@@ -70,5 +118,7 @@
     <div class="box">
         <div class="title">產品標題</div>
     </div>
+    <div class="box-position static">static所有物件的預設模式。少用</div>
+    <div class="box-position relative">relative相對定位，還在理解中。</div>
 </body>
 </html>

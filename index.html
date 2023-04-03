@@ -54,15 +54,17 @@
             /* 位置靠哪裡:absolute,絕對定位。 */
             position:absolute;
             /* bottom:是指底部的意思，底部值為0就是靠最下面的意思。 */
-            bottom: -32px;
+            bottom: 0px;
             /* 動畫變換時間。 */
-            transition: all 1s;
+            /* transition: all 1s; */
             /* 寬度100% */
             width:100%;
+            /* 物件屬性 */
+            display: none;
         }
-        .box:hover .title{
+        /* .box:hover .title{
             bottom: 0;
-        }
+        } */
         .box-position{
             width: 150px;
             height: 150px;
@@ -84,12 +86,23 @@
             background-color: blue;
         }
         .abosolute{
+            /* 絕對定位。 */
             position: absolute;
             background-color: cadetblue;
         }
         .sticky{
+            /* 黏貼定位 */
+            top: 30px;
             position: sticky;
             background-color: crimson;
+        }
+        /* jq連接動畫效果 */
+        .box_link_jq{
+            height: 300px;
+            width: 300px;
+            background: #000;
+            color: white;
+            display: none;
         }
     </style>
 </head>
@@ -120,5 +133,9 @@
     </div>
     <div class="box-position static">static所有物件的預設模式。少用</div>
     <div class="box-position relative">relative相對定位，還在理解中。</div>
+    <div class="box-position sticky">黏貼物件。</div>
+    <!-- jq連接動畫效果 -->
+    <input type="button" value="啟動" class="start">
+    <div class="box_link_jq">連續動畫效果</div>
 </body>
 </html>

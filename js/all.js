@@ -2,6 +2,7 @@
 $(document).ready(function () {
     // 當我點選class button時，會執行function裡面，的程式碼。
     $('.button').click(function (e) {
+        console.log(1);
         // 這邊前面可以寫class裡面的哪個元件。顯示或是隱藏。
         // $('.title #test').hide();
         // 綁定特定物件，後面teggle()判斷現在是顯示或是隱藏，隱藏他就顯示，顯示他就隱藏。
@@ -34,5 +35,21 @@ $(document).ready(function () {
     $('.toggle-button').click(function (e) {
         $('.toggle').toggleClass("active");
     });
- 
+    // 連連接動畫效果。
+    // 綁定class start，click點擊時會，執行以下動做。
+    $(".start").click(function (e) { 
+        console.log("測試連接");
+        // class box_link_jq，會先滑下用三秒，接下來滑上用三秒。可以無限接下去。
+        $(".box_link_jq").slideDown(3000).slideUp(3000).fadeIn().fadeOut();
+        // 這邊是連續動作。
+    });
+    // 測試輸入輸出。
+    $(".box").hover(function () {
+            $(".box .title").show(1000);
+            
+        }, function () {
+            $(".box .title").slideUp(1000);
+        }
+    );
+
 });

@@ -51,5 +51,20 @@ $(document).ready(function () {
             $(".box .title").slideUp(1000);
         }
     );
-
+    $(window).scroll(function () {
+        // 及時偵測網頁高度。
+        let windowghight=$(window).height();
+        // 先宣告總化面高度。
+        // 偵測看到畫面的高度。只能偵測畫面顯示的高度。
+        let allheight=$("body").height();
+        let sum=allheight-windowghight;
+        console.log("剩餘高度",sum);
+        // sum=sum-windowghight;
+        // console.log(sum);
+        // 綁定文檔的最高值，跟顯示出現在的最高位置顯示。
+        console.log($(document).scrollTop());
+        if(sum-$(document).scrollTop()<0){
+            alert("你已經到底了唷。")
+        }
+    });
 });

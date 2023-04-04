@@ -29,7 +29,8 @@
             position: relative;
             /* 超出時自動隱藏。 */
             overflow: hidden;
-            transition: all 3s;
+            /* 動畫動作時間。 */
+            transition: all 5s;
         }
         .title{
             /* 背景顏色 */
@@ -104,6 +105,7 @@
             color: white;
             display: none;
         }
+        
     </style>
 </head>
 <body>
@@ -137,5 +139,6 @@
     <!-- jq連接動畫效果 -->
     <input type="button" value="啟動" class="start">
     <div class="box_link_jq">連續動畫效果</div>
+    <a href="www.google.com" class="no_move">不要有動作</a>
 </body>
 </html>

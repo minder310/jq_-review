@@ -105,10 +105,30 @@
             color: white;
             display: none;
         }
-        
-    </style>
+        .menu > ul{  
+          display: none;
+          margin: 0px;
+          position: absolute;
+          background: #fff;
+          padding: 0;
+        } 
+        </style>
 </head>
 <body>
+    <!-- hover 下拉是選單出現。 -->
+    <div style="display: flex;">
+
+        <ul class="menu" style="padding: 0px;border: #000 solid 1px;"> 
+            下拉式選單
+            <ul>
+                <li style="border: #000 solid 1px;">1.選1</li>
+                <li style="border: #000 solid 1px;">2.選2</li>
+                <li style="border: #000 solid 1px;">3.選3</li>
+                <li style="border: #000 solid 1px;">4.選4</li>
+            </ul>
+        </ul>
+    </div>
+    <!-- 下拉式選單測試結束。 -->
     <h1 class="hover">1234</h1>
     <div class="title">
         <h1 id="test">1234</h1>

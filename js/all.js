@@ -52,9 +52,11 @@ $(document).ready(function () {
         }
     );
     $(window).scroll(function () {
+        // 偵測畫面寬度，寫法。
+        let window_width=$(window).width();
+        console.log("畫面寬度",window_width);
         // 及時偵測網頁高度。
         let windowghight=$(window).height();
-
         // 先宣告總化面高度。
         // 偵測看到畫面的高度。只能偵測畫面顯示的高度。
         let allheight=$("body").height();
@@ -65,16 +67,29 @@ $(document).ready(function () {
         // console.log(sum);
         // 綁定文檔的最高值，跟顯示出現在的最高位置顯示。
         console.log($(document).scrollTop());
-        // 當滾動高度，==100時class box 會改變寬度。
-        if($(document).scrollTop()==100){
+        // 宣告測試物件頂端，距離body高度0距離多少。
+        let box_size_change=$(".box").offset().top;
+        console.log("物件頂端高度",box_size_change);
+        let witch_window_height=$(window).height();
+        console.log("視窗大小",witch_window_height);
+        let window_to_top=$(document).scrollTop();
+        console.log("距離頂端高度",window_to_top);
+        let all_window=witch_window_height+window_to_top;
+        console.log("視窗與以捲動部份",all_window);
+        if(box_size_change<all_window){
+            $(".box").css('width','700px');
+        }
+        /* 1.當滾動高度，>100時class box 會改變寬度。
+        if($(document).scrollTop()>100){
             $(".box").css("width","700px");
         }
+        // 當滾動高度小於多少時，變小表格。
         if($(document).scrollTop()<100){
             $(".box").css("width","200px");
-        }
-        if(sum-$(document).scrollTop()<0){
-            alert("你已經到底了唷。")
-        }
+        }*/
+        // if(sum-$(document).scrollTop()<0){
+        //     alert("你已經到底了唷。")
+        // }
     });
     // 取消動作語法。
     // e代表物件本身。
@@ -84,4 +99,29 @@ $(document).ready(function () {
     });
     // .css語法。
     // $(".box").css("width","700px");
+    // 下拉式選單出現與隱藏。
+    $(".menu").hover(function () {
+        $(".menu").css("background","blue");
+        // .menu>ul 指class menu下面的ul才會有動作，
+            $(".menu > ul").slideDown(500);
+            $(".menu > ul").hover(function () {
+                    $(".menu > ul").show();
+                    // 當class menu 下面的ul 下面的li被hover時，用被選取的this(被選取)改變css顏色。
+                    $(".menu > ul > li").hover(function () {
+                            $(this).css("background","blue");
+                            
+                        }, function () {
+                            $(this).css("background","rgba(255,255,255)");
+                        }
+                    );
+                    
+                }, function () {
+                    $(".menu > ul").hide();
+                }
+            );
+        }, function () {
+            $(".menu").css("background","rgba(255,255,255,0.2)");
+            $(".menu > ul").hide();
+        }
+    );
 });

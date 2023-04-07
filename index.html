@@ -93,9 +93,12 @@
         }
         .sticky{
             /* 黏貼定位 */
-            top: 30px;
+            /*  */
+            top: 0px;
             position: sticky;
             background-color: crimson;
+            transition: all 1s;
+            
         }
         /* jq連接動畫效果 */
         .box_link_jq{
@@ -155,10 +158,23 @@
     </div>
     <div class="box-position static">static所有物件的預設模式。少用</div>
     <div class="box-position relative">relative相對定位，還在理解中。</div>
-    <div class="box-position sticky">黏貼物件。</div>
+    <div class="box-position sticky">sticky黏貼物件。</div>
     <!-- jq連接動畫效果 -->
     <input type="button" value="啟動" class="start">
     <div class="box_link_jq">連續動畫效果</div>
     <a href="www.google.com" class="no_move">不要有動作</a>
+    <!-- 測試字體大小，動態調整。 -->
+    <div style="width: 100%;height: 1000px;border: #000 solid 1px;">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, necessitatibus fuga exercitationem minima, rem dolore, magnam voluptatum provident ex eaque est veniam! Est, placeat. Perspiciatis aliquam iste nemo praesentium voluptas.
+            Maiores ab officia tempore quis accusantium. Molestias repellat veritatis aliquid similique, eligendi id quisquam sunt repudiandae esse voluptate omnis aliquam. Voluptate dignissimos deleniti repudiandae quae facere quisquam fuga perspiciatis maxime!
+            Eligendi saepe est delectus doloribus distinctio, corporis dolorum similique ea minima blanditiis ratione error veritatis quam ducimus esse eveniet, laborum consequuntur repudiandae eius? Perspiciatis ab, facere iste quos praesentium laudantium.
+            Facere molestias accusantium quia error eveniet exercitationem expedita sunt voluptatem. Error provident iste reiciendis. Asperiores, corporis totam voluptatem dolorem autem possimus excepturi, vel minima nemo tempore dolore iure perferendis laudantium.
+            Molestiae quam at unde repellat! Animi accusamus aut eveniet quisquam mollitia repellendus consequatur nesciunt dolore in! Adipisci, voluptatibus eaque dignissimos ratione quam est dolorum maiores eligendi repellat quaerat beatae perspiciatis?
+        </p>
+        <p>
+
+        </p>
+    </div>
 </body>
 </html>

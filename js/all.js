@@ -37,7 +37,7 @@ $(document).ready(function () {
     });
     // 連連接動畫效果。
     // 綁定class start，click點擊時會，執行以下動做。
-    $(".start").click(function (e) { 
+    $(".start").click(function (e) {
         console.log("測試連接");
         // class box_link_jq，會先滑下用三秒，接下來滑上用三秒。可以無限接下去。
         $(".box_link_jq").slideDown(3000).slideUp(3000).fadeIn().fadeOut();
@@ -45,39 +45,39 @@ $(document).ready(function () {
     });
     // 測試輸入輸出。
     $(".box").hover(function () {
-            $(".box .title").show(1000);
-            
-        }, function () {
-            $(".box .title").slideUp(1000);
-        }
+        $(".box .title").show(1000);
+
+    }, function () {
+        $(".box .title").slideUp(1000);
+    }
     );
     $(window).scroll(function () {
         // 偵測畫面寬度，寫法。
-        let window_width=$(window).width();
-        console.log("畫面寬度",window_width);
+        let window_width = $(window).width();
+        // console.log("畫面寬度", window_width);
         // 及時偵測網頁高度。
-        let windowghight=$(window).height();
+        let windowghight = $(window).height();
         // 先宣告總化面高度。
         // 偵測看到畫面的高度。只能偵測畫面顯示的高度。
-        let allheight=$("body").height();
-        console.log("body總高度",allheight)
-        let sum=allheight-windowghight;
-        console.log("剩餘高度",sum);
+        let allheight = $("body").height();
+        // console.log("body總高度", allheight)
+        let sum = allheight - windowghight;
+        // console.log("剩餘高度", sum);
         // sum=sum-windowghight;
         // console.log(sum);
         // 綁定文檔的最高值，跟顯示出現在的最高位置顯示。
-        console.log($(document).scrollTop());
+        // console.log($(document).scrollTop());
         // 宣告測試物件頂端，距離body高度0距離多少。
-        let box_size_change=$(".box").offset().top;
-        console.log("物件頂端高度",box_size_change);
-        let witch_window_height=$(window).height();
-        console.log("視窗大小",witch_window_height);
-        let window_to_top=$(document).scrollTop();
-        console.log("距離頂端高度",window_to_top);
-        let all_window=witch_window_height+window_to_top;
-        console.log("視窗與以捲動部份",all_window);
-        if(box_size_change<all_window){
-            $(".box").css('width','700px');
+        let box_size_change = $(".box").offset().top;
+        // console.log("物件頂端高度", box_size_change);
+        let witch_window_height = $(window).height();
+        // console.log("視窗大小", witch_window_height);
+        let window_to_top = $(document).scrollTop();
+        // console.log("距離頂端高度", window_to_top);
+        let all_window = witch_window_height + window_to_top;
+        // console.log("視窗與以捲動部份", all_window);
+        if (box_size_change < all_window) {
+            $(".box").css('width', '700px');
         }
         /* 1.當滾動高度，>100時class box 會改變寬度。
         if($(document).scrollTop()>100){
@@ -101,27 +101,47 @@ $(document).ready(function () {
     // $(".box").css("width","700px");
     // 下拉式選單出現與隱藏。
     $(".menu").hover(function () {
-        $(".menu").css("background","blue");
-        // .menu>ul 指class menu下面的ul才會有動作，
-            $(".menu > ul").slideDown(500);
-            $(".menu > ul").hover(function () {
-                    $(".menu > ul").show();
-                    // 當class menu 下面的ul 下面的li被hover時，用被選取的this(被選取)改變css顏色。
-                    $(".menu > ul > li").hover(function () {
-                            $(this).css("background","blue");
-                            
-                        }, function () {
-                            $(this).css("background","rgba(255,255,255)");
-                        }
-                    );
-                    
-                }, function () {
-                    $(".menu > ul").hide();
-                }
+        $(".menu").css("background", "blue");
+        // .menu>ul 指class menu下面的ul才會有動作，下滑顯示0.5秒，並且
+        $(".menu > ul").slideDown(500);
+        $(".menu > ul").hover(function () {
+            $(".menu > ul").show();
+            // 當class menu 下面的ul 下面的li被hover時，用被選取的this(被選取)改變css顏色。
+            $(".menu > ul > li").hover(function () {
+                $(this).css("background", "blue");
+
+            }, function () {
+                $(this).css("background", "rgba(255,255,255)");
+            }
             );
+
         }, function () {
-            $(".menu").css("background","rgba(255,255,255,0.2)");
             $(".menu > ul").hide();
         }
+        );
+    }, function () {
+        $(".menu").css("background", "rgba(255,255,255,0.2)");
+        $(".menu > ul").hide();
+    }
     );
+    // 一.變換黏貼物件，大小至可做成下拉是選單。
+    // 1.宣告黏貼物件距離頂端多少。
+    // 2.scroll轉動高度高度多少。
+    // 3.視窗可視範圍多少。
+    // 將1.2.相加，並且就可知道目前可視範圍有多少。
+    $(window).scroll(function () { 
+        // sticky高度有多少。
+        let stickyTop= $(".sticky").offset().top;
+        // 動態顯示，目前視窗最高點距離視窗最高點多少。
+        let scrollHeight=$(document).scrollTop();
+        // 顯示目前視窗高度多少。
+        let windowheight=$(window).height();
+        console.log("偵測高度",scrollHeight,"視窗高度",windowheight,"物件距離高度",stickyTop)
+        if(stickyTop==scrollHeight){
+            console.log("我有近來唷。")
+            $(".sticky").css("height","30px");
+        }else{
+            $(".sticky").css("height","150px");
+        }
+    });
 });

@@ -139,9 +139,17 @@ $(document).ready(function () {
         console.log("偵測高度",scrollHeight,"視窗高度",windowheight,"物件距離高度",stickyTop)
         if(stickyTop==scrollHeight){
             console.log("我有近來唷。")
-            $(".sticky").css("height","30px");
+            $(".sticky").css("height","30px").html("<button class='tobig'>變大</button><button class='tosim'>變小</button>");
         }else{
             $(".sticky").css("height","150px");
         }
+    });
+    $(".tobig").click(function (e) { 
+        e.preventDefault();
+        $(document).ready(function () {
+            console.log("我有反應。")
+            let size=$("p").css("font-size");
+            console.log(size);
+        });
     });
 });

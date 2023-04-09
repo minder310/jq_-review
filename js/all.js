@@ -129,27 +129,46 @@ $(document).ready(function () {
     // 2.scroll轉動高度高度多少。
     // 3.視窗可視範圍多少。
     // 將1.2.相加，並且就可知道目前可視範圍有多少。
-    $(window).scroll(function () { 
+    var test;
+    $(window).scroll(function () {
         // sticky高度有多少。
-        let stickyTop= $(".sticky").offset().top;
+        let stickyTop = $(".sticky").offset().top;
         // 動態顯示，目前視窗最高點距離視窗最高點多少。
-        let scrollHeight=$(document).scrollTop();
+        let scrollHeight = $(document).scrollTop();
         // 顯示目前視窗高度多少。
-        let windowheight=$(window).height();
-        console.log("偵測高度",scrollHeight,"視窗高度",windowheight,"物件距離高度",stickyTop)
-        if(stickyTop==scrollHeight){
-            console.log("我有近來唷。")
-            $(".sticky").css("height","30px").html("<button class='tobig'>變大</button><button class='tosim'>變小</button>");
-        }else{
-            $(".sticky").css("height","150px");
+        let windowheight = $(window).height();
+        // console.log("偵測高度", scrollHeight, "視窗高度", windowheight, "物件距離高度", stickyTop)
+        if (stickyTop == scrollHeight) {
+            $(".sticky").css("height", "30px").html("<button class='tobig'>變大</button><button class='tosmall'>變小</button>");
+            // 綁定特定物件。
+            chang_size_big = $(".tobig");
+            chang_size_small=$(".tosmall");
+            // 字體變大程式碼。
+            chang_size_big.click(function (e) {
+                e.preventDefault();
+                // 型態轉換，要加在後面，讓後面的數值，轉換成你想要的數值，在塞入容器內。
+                let size=$("p").css("font-size");
+                // 因為取出的的字串型態，所以要將px給拿掉，並且要宣告為數字。。
+                size=Number(size.replace("px",""));
+                // console.log("型態",typeof(size),"數值",size);
+                size=size+2;
+                // console.log(size);
+                $("p").css("font-size",size); 
+            });
+            chang_size_small.click(function (e) {
+                e.preventDefault();
+                // 型態轉換，要加在後面，讓後面的數值，轉換成你想要的數值，在塞入容器內。
+                let size=$("p").css("font-size");
+                // 因為取出的的字串型態，所以要將px給拿掉，並且要宣告為數字。。
+                size=Number(size.replace("px",""));
+                // console.log("型態",typeof(size),"數值",size);
+                size=size-2;
+                // console.log(size);
+                $("p").css("font-size",size); 
+            });
+
+        } else {
+            $(".sticky").css("height", "150px");
         }
-    });
-    $(".tobig").click(function (e) { 
-        e.preventDefault();
-        $(document).ready(function () {
-            console.log("我有反應。")
-            let size=$("p").css("font-size");
-            console.log(size);
-        });
     });
 });

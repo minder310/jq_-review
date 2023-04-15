@@ -170,5 +170,10 @@ $(document).ready(function () {
         } else {
             $(".sticky").css("height", "150px");
         }
+        // 以下關閉廣告jq
+        $(".ad > a").click(function (e) { 
+            e.preventDefault();
+            $(".ad").hide(500);
+        });
     });
 });

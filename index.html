@@ -115,9 +115,44 @@
           background: #fff;
           padding: 0;
         } 
+        /* class ad */
+        .ad{
+            /* position:fixed為定位元素，用於將固定於視窗的某個位置，都不會亂動。 */
+            position: fixed;
+            /* 距離底部 */
+            bottom: 0;
+            /* 靠右距離為0 */
+            right: 0;
+            /* 底色為黑色。 */
+            background: #000;
+            /* 文字為白色 */
+            color: #fff;
+            /* 高度為100px */
+            height: 100px;
+            /* 寬度為150px */
+            width: 150px; 
+            /* 所有物件靠右對齊 */
+            text-align: right;
+        }
+        /* class 下面的p物件。 */
+        .ad > p{
+            /* 上下左右margin:為自動，margin為元素邊界距離。*/
+            margin: auto;
+            /* 文字置中。 */
+            text-align: center;
+        }
+        .ad > a{
+            background: #fff;
+        }
         </style>
 </head>
 <body>
+    <div class="ad">
+        <a href="#">關閉</a>
+        <p>這是廣告區<br>
+            可以關閉。
+        </p>
+    </div>
     <!-- hover 下拉是選單出現。 -->
     <div style="display: flex;">
 

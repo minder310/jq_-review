@@ -170,10 +170,19 @@ $(document).ready(function () {
         } else {
             $(".sticky").css("height", "150px");
         }
-        // 以下關閉廣告jq
-        $(".ad > a").click(function (e) { 
-            e.preventDefault();
-            $(".ad").hide(500);
-        });
     });
+    // 以下關閉廣告jq
+    $(".ad > a").click(function (e) { 
+        e.preventDefault();
+        $(".ad").hide(500);
+    });
+    // 顯示右邊選項列jq
+    // $(".top").click(function (e) { 
+    //     e.preventDefault();
+    //     if($(".aside").css("transform")=="matrix(1, 0, 0, 1, 0, 0)"){
+    //         $(".aside").css("transform","translateX(-270px)");
+    //     }else{
+    //         $(".aside").css("transform","translateX(0px)");
+    //     }
+    // })
 });

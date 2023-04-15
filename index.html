@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +12,19 @@
     <script src="./js/all.js"></script>
     <!-- 自己寫style -->
     <style>
-        .toggle{
+        .toggle {
             opacity: 0;
             background-color: red;
             /* 這句話是指被改變時動畫效果，要持續多久時間，與要變換的物件。 */
             transition: all 3s;
         }
-        .toggle.active{
+
+        .toggle.active {
             opacity: 1;
-            background-color: black;      
+            background-color: black;
         }
-        .box{
+
+        .box {
             width: 200px;
             height: 100px;
             border: 1px solid blue;
@@ -32,7 +35,8 @@
             /* 動畫動作時間。 */
             transition: all 5s;
         }
-        .title{
+
+        .title {
             /* 背景顏色 */
             background: #000;
             /* 字體顏色 */
@@ -42,8 +46,9 @@
             /* 邊距寬度 宣告兩個就是左右上下。5px代表左右寬度，0代表上下邊距*/
             padding: 5px 0px;
         }
+
         /* 指class:box底下的title class。 */
-        .box .title{
+        .box .title {
             /* 背景顏色 */
             background: #000;
             /* 字體顏色 */
@@ -53,70 +58,79 @@
             /* 邊距寬度 宣告兩個就是左右上下。5px代表左右寬度，0代表上下邊距*/
             padding: 5px 0px;
             /* 位置靠哪裡:absolute,絕對定位。 */
-            position:absolute;
+            position: absolute;
             /* bottom:是指底部的意思，底部值為0就是靠最下面的意思。 */
             bottom: 0px;
             /* 動畫變換時間。 */
             /* transition: all 1s; */
             /* 寬度100% */
-            width:100%;
+            width: 100%;
             /* 物件屬性 */
             display: none;
         }
+
         /* .box:hover .title{
             bottom: 0;
         } */
-        .box-position{
+        .box-position {
             width: 150px;
             height: 150px;
-            border: 1px solid ;
+            border: 1px solid;
         }
-        .static{
+
+        .static {
             /* 靜態定位 */
             position: static;
             background-color: aqua;
         }
-        .relative{
+
+        .relative {
             /* 相對定位位 */
             position: relative;
             background-color: bisque;
         }
-        .fixed{
+
+        .fixed {
             /* 固定定位 */
             position: fixed;
             background-color: blue;
         }
-        .abosolute{
+
+        .abosolute {
             /* 絕對定位。 */
             position: absolute;
             background-color: cadetblue;
         }
-        .sticky{
+
+        .sticky {
             /* 黏貼定位 */
             /*  */
             top: 0px;
             position: sticky;
             background-color: crimson;
             transition: all 1s;
-            
+
         }
+
         /* jq連接動畫效果 */
-        .box_link_jq{
+        .box_link_jq {
             height: 300px;
             width: 300px;
             background: #000;
             color: white;
             display: none;
         }
-        .menu > ul{  
-          display: none;
-          margin: 0px;
-          position: absolute;
-          background: #fff;
-          padding: 0;
-        } 
+
+        .menu>ul {
+            display: none;
+            margin: 0px;
+            position: absolute;
+            background: #fff;
+            padding: 0;
+        }
+
         /* class ad */
-        .ad{
+        .ad {
             /* position:fixed為定位元素，用於將固定於視窗的某個位置，都不會亂動。 */
             position: fixed;
             /* 距離底部 */
@@ -130,23 +144,61 @@
             /* 高度為100px */
             height: 100px;
             /* 寬度為150px */
-            width: 150px; 
+            width: 150px;
             /* 所有物件靠右對齊 */
             text-align: right;
         }
+
         /* class 下面的p物件。 */
-        .ad > p{
+        .ad>p {
             /* 上下左右margin:為自動，margin為元素邊界距離。*/
             margin: auto;
             /* 文字置中。 */
             text-align: center;
         }
-        .ad > a{
+
+        .ad>a {
             background: #fff;
         }
-        </style>
+        /* 測試左邊隱藏選單，顯示與隱藏。 */
+        .top {
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            height: 5%;
+            background: red;
+            margin: 0px;
+            padding: 0px;
+        }
+        .aside{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            background: yellow;
+            transform: translateX(-270px);
+            transition: 1s ease;
+            z-index: 3;
+        }
+        
+    </style>
 </head>
-<body>
+<!-- 測試左邊選單，出現與隱藏。 -->
+<body style="margin: 0px;">
+    <div class="top">
+        <div style="display: flex;">
+            <ul class="menu" style="padding: 0px;border: #000 solid 1px;">
+                下拉式選單
+                <ul>
+                    <li style="border: #000 solid 1px;">1.選1</li>
+                    <li style="border: #000 solid 1px;">2.選2</li>
+                    <li style="border: #000 solid 1px;">3.選3</li>
+                    <li style="border: #000 solid 1px;">4.選4</li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="aside">我被藏起來搂</div>
+    <!-- 測試固定廣告區 -->
     <div class="ad">
         <a href="#">關閉</a>
         <p>這是廣告區<br>
@@ -154,18 +206,6 @@
         </p>
     </div>
     <!-- hover 下拉是選單出現。 -->
-    <div style="display: flex;">
-
-        <ul class="menu" style="padding: 0px;border: #000 solid 1px;"> 
-            下拉式選單
-            <ul>
-                <li style="border: #000 solid 1px;">1.選1</li>
-                <li style="border: #000 solid 1px;">2.選2</li>
-                <li style="border: #000 solid 1px;">3.選3</li>
-                <li style="border: #000 solid 1px;">4.選4</li>
-            </ul>
-        </ul>
-    </div>
     <!-- 下拉式選單測試結束。 -->
     <h1 class="hover">1234</h1>
     <div class="title">
@@ -184,7 +224,7 @@
         <button type="button">留言</button>
     </div>
     <button class="toggle-button">toggleclass測試</button>
-    <div class="toggle" >
+    <div class="toggle">
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <button type="button">留言</button>
     </div>
@@ -202,15 +242,26 @@
     <button class='tobig'>變大</button><button class='tosim'>變小</button>
     <div style="width: 100%;height: 1000px;border: #000 solid 1px;">
         <p style="font-size: 16px;">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, necessitatibus fuga exercitationem minima, rem dolore, magnam voluptatum provident ex eaque est veniam! Est, placeat. Perspiciatis aliquam iste nemo praesentium voluptas.
-            Maiores ab officia tempore quis accusantium. Molestias repellat veritatis aliquid similique, eligendi id quisquam sunt repudiandae esse voluptate omnis aliquam. Voluptate dignissimos deleniti repudiandae quae facere quisquam fuga perspiciatis maxime!
-            Eligendi saepe est delectus doloribus distinctio, corporis dolorum similique ea minima blanditiis ratione error veritatis quam ducimus esse eveniet, laborum consequuntur repudiandae eius? Perspiciatis ab, facere iste quos praesentium laudantium.
-            Facere molestias accusantium quia error eveniet exercitationem expedita sunt voluptatem. Error provident iste reiciendis. Asperiores, corporis totam voluptatem dolorem autem possimus excepturi, vel minima nemo tempore dolore iure perferendis laudantium.
-            Molestiae quam at unde repellat! Animi accusamus aut eveniet quisquam mollitia repellendus consequatur nesciunt dolore in! Adipisci, voluptatibus eaque dignissimos ratione quam est dolorum maiores eligendi repellat quaerat beatae perspiciatis?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, necessitatibus fuga exercitationem minima,
+            rem dolore, magnam voluptatum provident ex eaque est veniam! Est, placeat. Perspiciatis aliquam iste nemo
+            praesentium voluptas.
+            Maiores ab officia tempore quis accusantium. Molestias repellat veritatis aliquid similique, eligendi id
+            quisquam sunt repudiandae esse voluptate omnis aliquam. Voluptate dignissimos deleniti repudiandae quae
+            facere quisquam fuga perspiciatis maxime!
+            Eligendi saepe est delectus doloribus distinctio, corporis dolorum similique ea minima blanditiis ratione
+            error veritatis quam ducimus esse eveniet, laborum consequuntur repudiandae eius? Perspiciatis ab, facere
+            iste quos praesentium laudantium.
+            Facere molestias accusantium quia error eveniet exercitationem expedita sunt voluptatem. Error provident
+            iste reiciendis. Asperiores, corporis totam voluptatem dolorem autem possimus excepturi, vel minima nemo
+            tempore dolore iure perferendis laudantium.
+            Molestiae quam at unde repellat! Animi accusamus aut eveniet quisquam mollitia repellendus consequatur
+            nesciunt dolore in! Adipisci, voluptatibus eaque dignissimos ratione quam est dolorum maiores eligendi
+            repellat quaerat beatae perspiciatis?
         </p>
         <p>
 
         </p>
     </div>
 </body>
+
 </html>

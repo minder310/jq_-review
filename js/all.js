@@ -177,12 +177,13 @@ $(document).ready(function () {
         $(".ad").hide(500);
     });
     // 顯示右邊選項列jq
-    // $(".top").click(function (e) { 
-    //     e.preventDefault();
-    //     if($(".aside").css("transform")=="matrix(1, 0, 0, 1, 0, 0)"){
-    //         $(".aside").css("transform","translateX(-270px)");
-    //     }else{
-    //         $(".aside").css("transform","translateX(0px)");
-    //     }
-    // })
+    $(".top").click(function (e) { 
+        e.preventDefault();
+        console.log("我近來搂。")
+        if($(".aside").css("transform")=="matrix(1, 0, 0, 1, 0, 0)"){
+            $(".aside").css("transform","translateX(-270px)");
+        }else{
+            $(".aside").css("transform","translateX(0px)");
+        }
+    })
 });

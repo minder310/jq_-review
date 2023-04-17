@@ -170,21 +170,24 @@
             margin: 0px;
             padding: 0px;
         }
+
         .aside{
             position: fixed;
             top: 0;
             bottom: 0;
             background: yellow;
             transform: translateX(-270px);
-            transition: 1s ease;
+            transition: 0.5s ease;
             z-index: 3;
         }
+
         
     </style>
 </head>
 <!-- 測試左邊選單，出現與隱藏。 -->
 <body style="margin: 0px;">
     <div class="top">
+        <div class="aside">我被藏起來搂</div>
         <div style="display: flex;">
             <ul class="menu" style="padding: 0px;border: #000 solid 1px;">
                 下拉式選單
@@ -197,7 +200,6 @@
             </ul>
         </div>
     </div>
-    <div class="aside">我被藏起來搂</div>
     <!-- 測試固定廣告區 -->
     <div class="ad">
         <a href="#">關閉</a>

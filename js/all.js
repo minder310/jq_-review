@@ -186,4 +186,10 @@ $(document).ready(function () {
             $(".aside").css("transform","translateX(0px)");
         }
     })
+    // 測試parent。會將點擊物件，的上一個物件改變class或是其他功能。
+    $("input").click(function (e) { 
+        e.preventDefault();
+        $(this).parent().toggleClass("active");
+        
+    });
 });

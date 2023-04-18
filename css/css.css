@@ -1,0 +1,177 @@
+.toggle {
+    opacity: 0;
+    background-color: red;
+    /* 這句話是指被改變時動畫效果，要持續多久時間，與要變換的物件。 */
+    transition: all 3s;
+}
+
+.toggle.active {
+    opacity: 1;
+    background-color: black;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    border: 1px solid blue;
+    /* position:位置relative相對位置。 */
+    position: relative;
+    /* 超出時自動隱藏。 */
+    overflow: hidden;
+    /* 動畫動作時間。 */
+    transition: all 5s;
+}
+
+.title {
+    /* 背景顏色 */
+    background: #000;
+    /* 字體顏色 */
+    color: #fff;
+    /* 字體靠哪裡 */
+    text-align: center;
+    /* 邊距寬度 宣告兩個就是左右上下。5px代表左右寬度，0代表上下邊距*/
+    padding: 5px 0px;
+}
+
+/* 指class:box底下的title class。 */
+.box .title {
+    /* 背景顏色 */
+    background: #000;
+    /* 字體顏色 */
+    color: #fff;
+    /* 字體靠哪裡 */
+    text-align: center;
+    /* 邊距寬度 宣告兩個就是左右上下。5px代表左右寬度，0代表上下邊距*/
+    padding: 5px 0px;
+    /* 位置靠哪裡:absolute,絕對定位。 */
+    position: absolute;
+    /* bottom:是指底部的意思，底部值為0就是靠最下面的意思。 */
+    bottom: 0px;
+    /* 動畫變換時間。 */
+    /* transition: all 1s; */
+    /* 寬度100% */
+    width: 100%;
+    /* 物件屬性 */
+    display: none;
+}
+
+/* .box:hover .title{
+    bottom: 0;
+} */
+.box-position {
+    width: 150px;
+    height: 150px;
+    border: 1px solid;
+}
+
+.static {
+    /* 靜態定位 */
+    position: static;
+    background-color: aqua;
+}
+
+.relative {
+    /* 相對定位位 */
+    position: relative;
+    background-color: bisque;
+}
+
+.fixed {
+    /* 固定定位 */
+    position: fixed;
+    background-color: blue;
+}
+
+.abosolute {
+    /* 絕對定位。 */
+    position: absolute;
+    background-color: cadetblue;
+}
+
+.sticky {
+    /* 黏貼定位 */
+    /*  */
+    top: 0px;
+    position: sticky;
+    background-color: crimson;
+    transition: all 1s;
+
+}
+
+/* jq連接動畫效果 */
+.box_link_jq {
+    height: 300px;
+    width: 300px;
+    background: #000;
+    color: white;
+    display: none;
+}
+
+.menu>ul {
+    display: none;
+    margin: 0px;
+    position: absolute;
+    background: #fff;
+    padding: 0;
+}
+
+/* class ad */
+.ad {
+    /* position:fixed為定位元素，用於將固定於視窗的某個位置，都不會亂動。 */
+    position: fixed;
+    /* 距離底部 */
+    bottom: 0;
+    /* 靠右距離為0 */
+    right: 0;
+    /* 底色為黑色。 */
+    background: #000;
+    /* 文字為白色 */
+    color: #fff;
+    /* 高度為100px */
+    height: 100px;
+    /* 寬度為150px */
+    width: 150px;
+    /* 所有物件靠右對齊 */
+    text-align: right;
+}
+
+/* class 下面的p物件。 */
+.ad>p {
+    /* 上下左右margin:為自動，margin為元素邊界距離。*/
+    margin: auto;
+    /* 文字置中。 */
+    text-align: center;
+}
+
+.ad>a {
+    background: #fff;
+}
+
+/* 測試左邊隱藏選單，顯示與隱藏。 */
+.top {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 5%;
+    background: red;
+    margin: 0px;
+    padding: 0px;
+}
+/* 測試 */
+.aside {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: yellow;
+    transform: translateX(-270px);
+    transition: 0.5s ease;
+    z-index: 3;
+}
+.cart li{
+    width: 200px;
+    height: 50px;
+    border: #000 solid 1px;
+}
+.cart li.active{
+    background: blue;
+}

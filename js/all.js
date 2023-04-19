@@ -197,4 +197,10 @@ $(document).ready(function () {
         // 點擊這個元素的parent()父元素，toggleclass()新增或是刪除，class active。
         $(this).parent().toggleClass("active");
     });
+    // 測試find()可以拿來幹嘛。
+    $(".find li").click(function (e) { 
+        e.preventDefault();
+        // 當點擊this的時候搜尋子元素，有沒有h4這個物件，要是有的化偵測，有沒有加入active沒有的話加入有的話刪除。
+        $(this).find("h4").toggleClass("active");        
+    });
 });

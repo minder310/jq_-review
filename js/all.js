@@ -203,4 +203,17 @@ $(document).ready(function () {
         // 當點擊this的時候搜尋子元素，有沒有h4這個物件，要是有的化偵測，有沒有加入active沒有的話加入有的話刪除。
         $(this).find("h4").toggleClass("active");        
     });
+    $(".sum").click(function (e) { 
+        e.preventDefault();
+        $(this).next("div").toggle(500);
+    });
+    // 使用parent與find進行選取，與建置。
+    $(".test-parent-find > ul > li > a ").click(function (e) { 
+        // 停止原本要做的動作。
+        e.preventDefault();
+        // 將所選物件，的父階層，的同階層裡的，裡面的ul全部隱藏。
+        $(this).parent().siblings().find("ul").slideUp();
+        // 將所選的物件顯示出來，或是隱藏。
+        $(this).next("ul").slideToggle();
+    });
 });

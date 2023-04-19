@@ -195,3 +195,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+/* 顯現出點擊div的隱藏物件。 */
+.sum{
+    width: 100px;
+    height: 15px;
+    border: #000 solid 1px;
+}

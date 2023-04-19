@@ -177,19 +177,24 @@ $(document).ready(function () {
         $(".ad").hide(500);
     });
     // 顯示右邊選項列jq
-    $(".top").click(function (e) { 
+    $(".top").click(function (e) {
+        // 暫停預設的所有動作。 
         e.preventDefault();
-        console.log("我近來搂。")
+        // 取用class aside 裡面的css並且，==後面這個值，適用conlog.log看出來的，所以才會這樣寫。
         if($(".aside").css("transform")=="matrix(1, 0, 0, 1, 0, 0)"){
+            // 如果==就縮回去。
             $(".aside").css("transform","translateX(-270px)");
         }else{
+            // 如果!=就把他推出來。
             $(".aside").css("transform","translateX(0px)");
         }
     })
     // 測試parent。會將點擊物件，的上一個物件改變class或是其他功能。
     $("input").click(function (e) { 
         e.preventDefault();
+        // 點擊這個的parent()父元素，的所有siblings()同階層元素，刪除class active。
+        $(this).parent().siblings().removeClass("active");
+        // 點擊這個元素的parent()父元素，toggleclass()新增或是刪除，class active。
         $(this).parent().toggleClass("active");
-        
     });
 });

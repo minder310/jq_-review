@@ -217,4 +217,8 @@ $(document).ready(function () {
         $(this).next("ul").slideToggle();
     });
     $("li").attr("title","123456789");
+    // 測試remove()
+    $("input").on("click", function () {
+        $(this).parent().parent().remove();
+    });
 });

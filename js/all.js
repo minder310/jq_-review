@@ -221,4 +221,10 @@ $(document).ready(function () {
     $("input").on("click", function () {
         $(this).parent().parent().remove();
     });
+    $(".totop a").click(function (e) { 
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0 
+        },700);
+    });
 });

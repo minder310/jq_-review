@@ -221,10 +221,16 @@ $(document).ready(function () {
     $("input").on("click", function () {
         $(this).parent().parent().remove();
     });
+    // 綁定，class totop a下面，並綁定html body。
     $(".totop a").click(function (e) { 
         e.preventDefault();
+        // 來到卷軸處，高度0處。
         $('html,body').animate({
             scrollTop: 0 
+        //運用0.7秒。 
         },700);
     });
+    // 可以綁定，物件裡面，a[href($)<<意思是包含.docx的名稱，就會加上後面的class。]
+    // 這邊class仔入的是字型檔，並且可以直接用font-size改大小跟顏色。
+    $("a[href$='.docx']").addClass("fa fa-sharp fa-light fa-file-word");
 });
